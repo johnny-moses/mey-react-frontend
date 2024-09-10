@@ -1,0 +1,64 @@
+/* Sidebar Container */
+.sidebar {
+  width: 175px;  /* Sidebar width */
+  height: 100vh;  /* Full height */
+  position: fixed;  /* Sidebar stays fixed */
+  top: 0;
+  left: 0;
+  z-index: 1000;  /* Make sure it's on top */
+  background-color: #343a40;  /* Dark background */
+  overflow-y: auto;  /* Scrollable if content exceeds height */
+  transition: all 0.3s ease;  /* Smooth transitions */
+}
+
+/* Styling for the sidebar brand and nav links */
+.sidebar-brand {
+  padding: 1rem;
+  text-align: center;
+}
+
+.sidebar .nav-link {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #495057;
+}
+
+.sidebar .nav-link i {
+  margin-right: 10px;
+}
+
+/* Content Wrapper */
+#content-wrapper {
+  margin-left: 250px;  /* Adjust the main content to fit next to the sidebar */
+  width: calc(100% - 250px);  /* The main content takes the remaining width */
+  padding: 20px;  /* Add some padding to main content */
+  transition: all 0.3s ease;  /* Smooth transitions */
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;  /* Make sidebar smaller on smaller screens */
+  }
+  #content-wrapper {
+    margin-left: 200px;  /* Adjust the margin accordingly */
+    width: calc(100% - 200px);
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 0;  /* Hide sidebar on very small screens */
+    position: absolute;  /* Sidebar will float over the content */
+  }
+  #content-wrapper {
+    margin-left: 0;  /* Content takes the full width */
+    width: 100%;
+  }
+}

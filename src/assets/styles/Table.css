@@ -1,0 +1,24 @@
+.table {
+  width: 100%; /* Ensure the table is full-width */
+  max-height: 75vh; /* Occupy a significant vertical space */
+  overflow-y: auto; /* Enable scrolling if there are many rows */
+}
+
+.sticky-header th {
+  position: sticky;
+  top: 0;
+  background-color: #343a40; /* Ensure the header remains visible */
+  z-index: 1020;
+}
+
+.card-body {
+  padding: 0; /* Remove padding around the table to maximize space */
+}
+
+.card {
+  margin-bottom: 0; /* Remove unnecessary margin */
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1; /* Highlight rows on hover */
+}

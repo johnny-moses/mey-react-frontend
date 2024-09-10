@@ -1,0 +1,15 @@
+.navbar-search .form-control {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /* Add subtle shadow */
+  border-radius: 0.25rem 0 0 0.25rem;  /* Rounded left corners */
+}
+
+.navbar-search .btn-primary {
+  background-color: #007bff;  /* Theme color */
+  border-color: #007bff;
+  border-radius: 0 0.25rem 0.25rem 0;  /* Rounded right corners */
+}
+
+.btn-primary {
+  font-size: 0.875rem;  /* Make the button text smaller */
+  padding: 0.5rem 1rem;  /* Adjust padding for consistent button size */
+}

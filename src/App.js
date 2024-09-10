@@ -1,20 +1,21 @@
 import React from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard';
-import './assets/styles.css';
+import Dashboard from "./components/Dashboard";
+
+
 
 function App() {
   return (
-    <div id="wrapper" className="d-flex">
-      <Sidebar />
-      <div id="content-wrapper" className="d-flex flex-column">
-        <div id="content">
-          <Navbar />
-          <Dashboard />
-        </div>
+      <div>
+          <Sidebar/> {/* Sidebar will remain fixed */}
+          <div id="content-wrapper" className="d-flex flex-column">
+              <div id="content">
+                  <Navbar/>
+                  <Dashboard/>
+              </div>
+          </div>
       </div>
-    </div>
   );
 }
 
