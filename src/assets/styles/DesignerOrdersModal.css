@@ -1,0 +1,18 @@
+.designer-orders-modal .command-center-actions {
+  margin-bottom: 20px;
+}
+
+.designer-orders-modal .command-center-actions button {
+  width: 200px;
+}
+
+.designer-orders-modal .loading-indicator {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.designer-orders-modal .sidemark-section select {
+  max-width: 400px;
+  margin-bottom: 20px;
+}
