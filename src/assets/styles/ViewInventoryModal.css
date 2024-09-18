@@ -1,0 +1,87 @@
+/* Modal Display */
+.modal.show.view-inventory-modal {
+    display: block;
+    overflow: hidden;
+}
+
+/* Modal Size */
+.modal-xl {
+    max-width: 90% !important; /* Utilize 90% of screen width */
+}
+
+/* Centering the Modal */
+.modal-dialog {
+    margin: 0 auto;  /* Center modal horizontally */
+}
+
+/* Modal Content */
+.modal-content {
+    width: 100%;  /* Utilize the full width of its container */
+}
+
+/* Modal Body */
+.modal-body {
+    max-height: 70vh; /* Utilize more screen height */
+    overflow-y: auto;
+}
+
+/* Table Responsiveness */
+.table-responsive {
+    max-height: 60vh; /* Adjust the height according to your needs */
+    overflow-y: auto;
+}
+
+/* Input Styles within Table Cells */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* General Table Style */
+.table {
+    table-layout: auto;  /* Allow dynamic resizing */
+    width: 100%;  /* Ensure the table takes full width */
+}
+
+.table td {
+    cursor: pointer;
+}
+
+/* Input Field Styles */
+.table td input {
+    border: none;
+    background: transparent;
+    width: 100%;
+}
+
+/* Input Field Focus Styles */
+.table td input:focus {
+    border: 1px solid #ced4da;
+    background: white;
+}
+
+.table td {
+    padding: 0.75rem;
+}
+
+/* Hover Effect on Table Cells */
+.table-hover tbody tr td:hover {
+    background-color: #f1f1f1;
+}
+
+/* Modal Footer */
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;  /* Aligns buttons to the right */
+    margin-bottom: 10px;
+}
+
+.modal-buttons button {
+    margin-left: 10px;  /* Add space between buttons */
+}
