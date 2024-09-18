@@ -18,10 +18,15 @@ function DesignerOrdersModal({ designerId, closeModal }) {
         const fetchSidemarks = async () => {
             try {
                 const response = await fetch(`http://localhost:5000/api/designer/${designerId}/sidemarks`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
+                console.log('Fetched Sidemarks:', data); // Log the data
                 setSidemarks(data);
             } catch (error) {
                 console.error('Failed to fetch sidemarks', error);
+                setMessage('Failed to load sidemarks');
             }
         };
 
@@ -30,10 +35,17 @@ function DesignerOrdersModal({ designerId, closeModal }) {
 
     // Fetch workorders for selected sidemark
     const fetchWorkorders = async (sidemarkId) => {
+        if (!sidemarkId) {
+            return;
+        }
         setLoading(true);
         try {
-            const response = await fetch(`http://localhost:5000/api/designer/${designerId}/sidemark/${sidemarkId}/orders`);
+            const response = await fetch(`http://localhost:5000/api/sidemark/${sidemarkId}/orders`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const data = await response.json();
+            console.log('Fetched Workorders:', data); // Log the data
             setOrders(data);
             setSelectedSidemark(sidemarkId);
             setLoading(false);
@@ -79,6 +91,7 @@ function DesignerOrdersModal({ designerId, closeModal }) {
                         {/* Sidemark Dropdown */}
                         <div className="sidemark-section mb-4">
                             <h6>Select a Sidemark</h6>
+                            {message && <p className="error-message">{message}</p>}
                             <select className="form-control" onChange={(e) => fetchWorkorders(e.target.value)}>
                                 <option value="">Select Sidemark</option>
                                 {sidemarks.map(s => (
