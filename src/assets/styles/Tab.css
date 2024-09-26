@@ -13,29 +13,58 @@
     margin-right: 10px;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    border-bottom: none;
     cursor: pointer;
     background-color: #f0f0f0;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
-.tab-item.active {
-    border-top: 2px solid #007bff;
-    background-color: #fff;
+.tab-item:hover {
+    background-color: #e0e0e0;
 }
 
-.tab-item span {
-    margin-right: 5px;
-}
-
-.tab-content {
-    border: 1px solid #ccc;
-    padding: 20px;
-}
-
-.tab-item button {
+.tab-item .close-button {
     background: none;
     border: none;
     cursor: pointer;
     color: red;
     font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.active-tab {
+    border-top: 2px solid #007bff;
+    border-left: 1px solid #007bff;
+    border-right: 1px solid #007bff;
+    background-color: #fff;
+}
+
+.card-header h1.active {
+    border-bottom: 2px solid #007bff;
+}
+
+.card-header h1 {
+    cursor: pointer;
+    padding-bottom: 10px;
+    margin-right: 10px;
+}
+
+/* Styling for clickable header */
+.header-button {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.header-button:hover,
+.header-button.active-tab {
+    border: 1px solid #007bff;
+    background-color: #f0f0f0;
+    color: #007bff;
 }
