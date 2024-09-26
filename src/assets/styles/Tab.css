@@ -1,0 +1,41 @@
+.tabs {
+    margin-top: 20px;
+}
+
+.tab-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+.tab-item {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.tab-item.active {
+    border-top: 2px solid #007bff;
+    background-color: #fff;
+}
+
+.tab-item span {
+    margin-right: 5px;
+}
+
+.tab-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.tab-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}

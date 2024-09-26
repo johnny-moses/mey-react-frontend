@@ -1,36 +1,32 @@
 import React, { useState } from 'react';
 import Table from './Table';
-import DesignerOrdersModal from './DesignerOrdersModal';
-import '../assets/styles/Modal.css';  // Import custom styling for the modal
+import DesignerOrders from './DesignerOrdersModal';
 
 function Dashboard({ designers }) {
-  const [selectedDesigner, setSelectedDesigner] = useState(null);  // Track selected designer
-  const [showModal, setShowModal] = useState(false);  // Control modal visibility
+    const [openTabs, setOpenTabs] = useState([{ id: 'table', designer_name: 'Designer List' }]);
+    const [activeTab, setActiveTab] = useState('table');
 
-  const handleDesignerClick = (designerId) => {
-    console.log('Clicked designer ID:', designerId);
-    setSelectedDesigner(designerId);  // Track which designer was clicked
-    setShowModal(true);  // Show the modal
-  };
+    const handleDesignerClick = (designer) => {
+        if (!openTabs.some(tab => tab.id === designer.id)) {
+            setOpenTabs([...openTabs, designer]);
+        }
+        setActiveTab(designer.id);  // Set the clicked designer as active tab
+    }
 
-  const closeModal = () => {
-    setShowModal(false);
-    setSelectedDesigner(null);  // Clear selected designer when closing modal
-  };
+    const closeTab = (id) => {
+        if (id === 'table') return;  // Prevent the table tab from being closed
+        setOpenTabs(openTabs.filter(tab => tab.id !== id));
+        if (activeTab === id && openTabs.length > 1) {
+            setActiveTab(openTabs.length > 1 ? openTabs[1].id : 'table');
+        }
+    }
 
-  return (
-    <div className="container-fluid">
-      <h1 className="text-center">Designers</h1>
-      <Table data={designers} onDesignerClick={handleDesignerClick} />
-
-      {showModal && (
-        <DesignerOrdersModal
-          designerId={selectedDesigner}
-          closeModal={closeModal}
-        />
-      )}
-    </div>
-  );
+    return (
+        <div className="container-fluid">
+            <h1 className="text-center">Designers</h1>
+            <Table data={designers} onDesignerClick={handleDesignerClick} openTabs={openTabs} activeTab={activeTab} closeTab={closeTab} setActiveTab={setActiveTab} />
+        </div>
+    );
 }
 
 export default Dashboard;
