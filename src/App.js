@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     const fetchDesigners = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/designer');  // Fetch from Flask backend
+        const response = await fetch('http://localhost:5000/api/designers');  // Fetch from Flask backend
         const data = await response.json();
         setDesigners(data);  // Set the designer data
         setLoading(false);
