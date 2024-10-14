@@ -11,12 +11,12 @@
 
 /* Centering the Modal */
 .modal-dialog {
-    margin: 0 auto;  /* Center modal horizontally */
+    margin: 0 auto; /* Center modal horizontally */
 }
 
 /* Modal Content */
 .modal-content {
-    width: 100%;  /* Utilize the full width of its container */
+    width: 100%; /* Utilize the full width of its container */
 }
 
 /* Modal Body */
@@ -39,8 +39,8 @@ input[type="text"], input[type="number"] {
 
 /* General Table Style */
 .table {
-    table-layout: auto;  /* Allow dynamic resizing */
-    width: 100%;  /* Ensure the table takes full width */
+    table-layout: auto; /* Allow dynamic resizing */
+    width: 100%; /* Ensure the table takes full width */
 }
 
 .table td {
@@ -86,15 +86,25 @@ input[type="text"], input[type="number"] {
 /* Modal Buttons */
 .modal-buttons {
     display: flex;
-    justify-content: flex-end;  /* Aligns buttons to the right */
+    justify-content: flex-end; /* Aligns buttons to the right */
     margin-bottom: 10px;
 }
 
 .modal-buttons button {
-    margin-left: 10px;  /* Add space between buttons */
+    margin-left: 10px; /* Add space between buttons */
 }
 
 /* Styles for scrollable textarea */
 textarea {
     resize: vertical;
+}
+
+/* Short columns */
+.short-column {
+    width: 75px; /* Adjust as necessary */
+}
+
+/* Long columns */
+.long-column {
+    width: 225px; /* Adjust as necessary */
 }

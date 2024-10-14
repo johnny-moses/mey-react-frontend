@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../assets/styles/ViewInventoryModal.css'; // Ensure you import the CSS file
 
 function ViewInventoryModal({ workorderId, closeModal }) {
     const [inventory, setInventory] = useState([]);
@@ -69,29 +70,45 @@ function ViewInventoryModal({ workorderId, closeModal }) {
 
     return (
         <div className="mt-4">
-            <h6>Inventory for Workorder {workorderId}</h6>
-            <button className="btn btn-secondary mb-2" onClick={closeModal}>Close Inventory View</button>
+            <div className="d-flex justify-content-between align-items-center mb-3">
+                <h6>Inventory for Workorder {workorderId}</h6>
+                <div>
+                    <button className="btn btn-secondary mr-2" onClick={closeModal}>Close Inventory View</button>
+                    <button className="btn btn-secondary mr-2">Send Email</button>
+                    <button className="btn btn-secondary">Print Delivery Sheet</button>
+                </div>
+            </div>
             <table className="table table-bordered table-hover">
                 <thead className="thead-light">
                 <tr>
-                    <th>Item ID</th>
+                    <th>Select</th>
                     <th>Item Name</th>
                     <th>SKU</th>
                     <th>Manufacture</th>
-                    <th>Quantity</th>
-                    <th>Length</th>
-                    <th>Width</th>
-                    <th>Height</th>
-                    <th>Weight</th>
+                    <th className="short-column">Quantity</th>
+                    <th className="short-column">Length</th>
+                    <th className="short-column">Width</th>
+                    <th className="short-column">Height</th>
+                    <th className="short-column">Weight</th>
                     <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
                 {inventory.map(item => (
                     <tr key={item.id}>
-                        <td>{item.id}</td>
+                        <td>
+                            <input type="checkbox" />
+                        </td>
                         {["item_name", "sku", "manufacture", "quantity", "length", "width", "height", "weight", "description"].map(key => (
-                            <td key={key} className={editedData[item.id]?.[key] ? 'table-warning' : ''}>
+                            <td key={key} className={`${
+                                editedData[item.id]?.[key] ? 'table-warning' : ''
+                            } ${
+                                key === 'item_name' || key === 'description'
+                                    ? 'long-column'
+                                    : ['quantity', 'length', 'width', 'height'].includes(key)
+                                    ? 'short-column'
+                                    : ''
+                            }`}>
                                 {key === "description" || key === "item_name" ? (
                                     <textarea
                                         className="form-control"
