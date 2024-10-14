@@ -25,15 +25,29 @@ function ViewInventoryModal({ workorderId, closeModal }) {
                 <thead className="thead-light">
                 <tr>
                     <th>Item ID</th>
+                    <th>Item Name</th>
+                    <th>SKU</th>
+                    <th>Manufacture</th>
                     <th>Quantity</th>
+                    <th>Length</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                    <th>Weight</th>
                     <th>Description</th>
                 </tr>
                 </thead>
                 <tbody>
                 {inventory.map(item => (
                     <tr key={item.id}>
-                        <td>{item.item_id}</td>
+                        <td>{item.id}</td>
+                        <td>{item.item_name}</td>
+                        <td>{item.sku}</td>
+                        <td>{item.manufacture}</td>
                         <td>{item.quantity}</td>
+                        <td>{item.length}</td>
+                        <td>{item.width}</td>
+                        <td>{item.height}</td>
+                        <td>{item.weight}</td>
                         <td>{item.description}</td>
                     </tr>
                 ))}
