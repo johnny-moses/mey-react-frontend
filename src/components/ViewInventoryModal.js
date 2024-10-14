@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-function ViewInventoryModal({workorderId, closeModal}) {
+function ViewInventoryModal({ workorderId, closeModal }) {
     const [inventory, setInventory] = useState([]);
     const [editedData, setEditedData] = useState({});
     const [showSaveButton, setShowSaveButton] = useState(false);

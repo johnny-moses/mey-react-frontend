@@ -3,11 +3,11 @@ import ViewInventoryModal from './ViewInventoryModal';
 import AddSidemarkModal from './AddSidemarkModal';
 import '../assets/styles/DesignerOrdersModal.css';
 
-function DesignerOrders({ designer }) {
-    const [sidemarks, setSidemarks] = useState([]);
-    const [orders, setOrders] = useState([]);
-    const [selectedSidemark, setSelectedSidemark] = useState(null);
-    const [selectedWorkorder, setSelectedWorkorder] = useState(null);
+function DesignerOrders({ designer, state = {}, updateState }) {
+    const [sidemarks, setSidemarks] = useState(state.sidemarks || []);
+    const [orders, setOrders] = useState(state.orders || []);
+    const [selectedSidemark, setSelectedSidemark] = useState(state.selectedSidemark || null);
+    const [selectedWorkorder, setSelectedWorkorder] = useState(state.selectedWorkorder || null);
     const [loading, setLoading] = useState(false);
     const [showAddSidemarkModal, setShowAddSidemarkModal] = useState(false);
     const [message, setMessage] = useState(null);
@@ -25,6 +25,10 @@ function DesignerOrders({ designer }) {
 
         fetchSidemarks();
     }, [designer.id]);
+
+    useEffect(() => {
+        updateState({ sidemarks, orders, selectedSidemark, selectedWorkorder });
+    }, [sidemarks, orders, selectedSidemark, selectedWorkorder]);
 
     const fetchWorkorders = async (sidemarkId) => {
         setLoading(true);

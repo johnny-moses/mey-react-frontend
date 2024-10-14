@@ -6,20 +6,33 @@ import DesignerOrders from './DesignerOrdersModal';
 function Dashboard({ designers }) {
     const [openTabs, setOpenTabs] = useState([]);
     const [activeTab, setActiveTab] = useState('table');
+    const [tabStates, setTabStates] = useState({});
 
     const handleDesignerClick = (designer) => {
         if (!openTabs.some(tab => tab.id === designer.id)) {
             setOpenTabs([...openTabs, designer]);
         }
         setActiveTab(designer.id);
-    }
+    };
 
     const closeTab = (id) => {
-        setOpenTabs(openTabs.filter(tab => tab.id !== id));
-        if (activeTab === id && openTabs.length > 0) {
-            setActiveTab(openTabs.length > 1 ? openTabs[0].id : 'table');
+        const updatedTabs = openTabs.filter(tab => tab.id !== id);
+        setOpenTabs(updatedTabs);
+        if (activeTab === id) {
+            setActiveTab(updatedTabs.length > 0 ? updatedTabs[0].id : 'table');
         }
-    }
+        // Optionally clean up the state of the closed tab
+        const updatedTabStates = { ...tabStates };
+        delete updatedTabStates[id];
+        setTabStates(updatedTabStates);
+    };
+
+    const updateTabState = (id, newState) => {
+        setTabStates(prevState => ({
+            ...prevState,
+            [id]: newState,
+        }));
+    };
 
     return (
         <div className="container-fluid">
@@ -53,6 +66,8 @@ function Dashboard({ designers }) {
                                 <DesignerOrders
                                     key={tab.id}
                                     designer={tab}
+                                    state={tabStates[tab.id] || {}}
+                                    updateState={(newState) => updateTabState(tab.id, newState)}
                                 />
                             )
                         ))

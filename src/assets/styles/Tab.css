@@ -68,3 +68,29 @@
     background-color: #f0f0f0;
     color: #007bff;
 }
+
+/* Additional styles for better visual feedback */
+.header-button.active-tab {
+    color: #007bff; /* Added this line to ensure active tab header button is blue */
+}
+
+.tab-item.active-tab > span {
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+}
+
+.tab-item .close-button:hover {
+    color: #bd2130;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+.card {
+    border-radius: 0.25rem;
+}
+
+.card-body {
+    padding: 20px;
+}
