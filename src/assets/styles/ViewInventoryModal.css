@@ -48,18 +48,26 @@ input[type="text"], input[type="number"] {
 }
 
 /* Input Field Styles */
-.table td input {
+.table td input,
+.table td textarea {
     border: none;
     background: transparent;
     width: 100%;
 }
 
 /* Input Field Focus Styles */
-.table td input:focus {
+.table td input:focus,
+.table td textarea:focus {
     border: 1px solid #ced4da;
     background: white;
 }
 
+/* Highlight edited cells */
+.table-warning {
+    background-color: #fff3cd;
+}
+
+/* Padding for table cells */
 .table td {
     padding: 0.75rem;
 }
@@ -84,4 +92,9 @@ input[type="text"], input[type="number"] {
 
 .modal-buttons button {
     margin-left: 10px;  /* Add space between buttons */
+}
+
+/* Styles for scrollable textarea */
+textarea {
+    resize: vertical;
 }
