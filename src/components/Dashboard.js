@@ -1,79 +1,35 @@
-import React, { useState } from 'react';
-import '../assets/styles/Tab.css';
-import Table from './Table';
-import DesignerOrders from './DesignerOrdersModal';
+import React from 'react';
 
-function Dashboard({ designers }) {
-    const [openTabs, setOpenTabs] = useState([]);
-    const [activeTab, setActiveTab] = useState('table');
-    const [tabStates, setTabStates] = useState({});
-
-    const handleDesignerClick = (designer) => {
-        if (!openTabs.some(tab => tab.id === designer.id)) {
-            setOpenTabs([...openTabs, designer]);
-        }
-        setActiveTab(designer.id);
-    };
-
-    const closeTab = (id) => {
-        const updatedTabs = openTabs.filter(tab => tab.id !== id);
-        setOpenTabs(updatedTabs);
-        if (activeTab === id) {
-            setActiveTab(updatedTabs.length > 0 ? updatedTabs[0].id : 'table');
-        }
-        // Optionally clean up the state of the closed tab
-        const updatedTabStates = { ...tabStates };
-        delete updatedTabStates[id];
-        setTabStates(updatedTabStates);
-    };
-
-    const updateTabState = (id, newState) => {
-        setTabStates(prevState => ({
-            ...prevState,
-            [id]: newState,
-        }));
-    };
-
+function Dashboard() {
     return (
-        <div className="container-fluid">
-            <div className="d-flex align-items-center">
-                <h1
-                    className={`${activeTab === 'table' ? 'header-button active-tab' : 'header-button'} m-0 font-weight-bold`}
-                    onClick={() => setActiveTab('table')}
-                >
-                    Designers
-                </h1>
-                <ul className="tab-list d-flex ml-3 mb-0">
-                    {openTabs.map(tab => (
-                        <li
-                            key={tab.id}
-                            className={`tab-item ${activeTab === tab.id ? 'active-tab' : ''}`}
-                        >
-                            <span onClick={() => setActiveTab(tab.id)}>{tab.designer_name}</span>
-                            <button className="close-button" onClick={() => closeTab(tab.id)}>x</button>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="card mt-3 shadow mb-4">
-                <div className="card-body">
-                    {activeTab === 'table' ? (
-                        <Table data={designers} onDesignerClick={handleDesignerClick} />
-                    ) : (
-                        openTabs.map(tab => (
-                            activeTab === tab.id && (
-                                <DesignerOrders
-                                    key={tab.id}
-                                    designer={tab}
-                                    state={tabStates[tab.id] || {}}
-                                    updateState={(newState) => updateTabState(tab.id, newState)}
-                                />
-                            )
-                        ))
-                    )}
-                </div>
-            </div>
+        <div className="container-fluid d-flex justify-content-center align-items-center flex-wrap" style={{ height: '100vh' }}>
+            <button className="btn btn-primary btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Add Inventory
+            </button>
+            <button className="btn btn-secondary btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                View All Inventory
+            </button>
+            <button className="btn btn-success btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Update Inventory
+            </button>
+            <button className="btn btn-danger btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Remove Inventory
+            </button>
+            <button className="btn btn-warning btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Inventory Reports
+            </button>
+            <button className="btn btn-info btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Inventory Alerts
+            </button>
+            <button className="btn btn-dark btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Inventory Transfers
+            </button>
+            <button className="btn btn-light btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Inventory Audits
+            </button>
+            <button className="btn btn-primary btn-lg shadow m-2" style={{ padding: '20px 40px', fontSize: '24px' }}>
+                Inventory Settings
+            </button>
         </div>
     );
 }

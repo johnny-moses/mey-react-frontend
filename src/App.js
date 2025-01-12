@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
-import TestConnection from './components/TestConnection';
 
 function App() {
   const [designers, setDesigners] = useState([]);
@@ -39,7 +38,6 @@ function App() {
             <Dashboard designers={designers} />
           )}
         </div>
-        <TestConnection />
       </div>
     </div>
   );
