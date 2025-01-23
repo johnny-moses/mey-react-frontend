@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button, Table } from 'react-bootstrap';
-import '../assets/styles/InventoryTable.css'; // Import the CSS file
+import '../assets/styles/InventoryTable.css';
 
 function InventoryTableModal({ show, handleClose, inventory }) {
     const sampleInventory = [
