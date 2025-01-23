@@ -1,0 +1,12 @@
+.full-width-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.modal-dialog {
+    max-width: 90%;
+}
+
+.modal-body {
+    overflow-x: auto;
+}
