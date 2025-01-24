@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Table } from 'react-bootstrap';
+import { Modal, Button, Table, Dropdown } from 'react-bootstrap';
 import '../assets/styles/InventoryTable.css';
 
 function InventoryTableModal({ show, handleClose, inventory }) {
@@ -47,7 +47,17 @@ function InventoryTableModal({ show, handleClose, inventory }) {
                                 <td>{item.width}</td>
                                 <td>{item.height}</td>
                                 <td>
-                                    <Button variant="primary">Edit</Button>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+                                            Edit
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item href="#/action-1">Option 1</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-2">Option 2</Dropdown.Item>
+                                            <Dropdown.Item href="#/action-3">Option 3</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 </td>
                             </tr>
                         ))}
